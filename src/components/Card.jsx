@@ -25,24 +25,24 @@ const Card = () => {
 
     if (score === 1000) {
         return (
-            <div className="border border-gray-300 rounded-md p-4 my-4 text-center">
+            <div className="border border-gray-300 rounded-md p-4 my-4 text-center flex flex-col gap-4">
                 <h1 className=' text-2xl font-bold text-green-600 mb-5'>Winner!!</h1>
                 <p className='text-2xl font-bold'>You Guessed it Right</p>
-            <img  className='h-52 brightness-0' src={pokemon?.imageURL} alt="pokemon" />
+            <img  className='h-52 mt-2' src={pokemon?.imageURL} alt="pokemon" />
 
-            <h1>{pokemon.name}</h1>
+            <h1 className=' text-2xl font-extrabold mt-2'>{pokemon.name.toUpperCase()}</h1>
                 
-                <button onClick={restart} className=' bg-teal-500 text-white px-5 py-2 text-lg font-bold rounded-2xl mt-5'>Play Again ?</button>
+                <button onClick={restart} className=' bg-teal-500 text-white px-5 py-2 text-lg font-bold rounded-2xl mt-2'>Play Again ?</button>
             </div>
         )
     }
     if(life===0){
         return(
             <div className="border border-gray-300 rounded-md p-4 my-4 text-center flex flex-col gap-4">
-            <h1 className=' text-2xl font-bold text-red-600 mb-5' >You lost the Game!!</h1>
+            <h1 className=' text-2xl font-bold text-red-600'>You lost the Game!!</h1>
             <img  className='h-52' src={pokemon?.imageURL} alt="pokemon" />
-            <h1 className=' text-2xl font-extrabold '> {pokemon.name.toUpperCase() } </h1>
-                <button onClick={restart} className=' bg-teal-500 text-white px-5 py-2 text-lg font-bold rounded-2xl mt-5'>Play Again ?</button>
+            <h1 className=' text-2xl font-extrabold mt-2'>{pokemon.name.toUpperCase()}</h1>
+                <button onClick={restart} className=' bg-teal-500 text-white px-5 py-2 text-lg font-bold rounded-2xl mt-2'>Play Again ?</button>
         </div>
         )
     }

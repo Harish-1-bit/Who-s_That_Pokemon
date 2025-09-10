@@ -8,6 +8,7 @@ export const PokeProvider = ({ children }) => {
     const initialState = {
         pokemon: null,
         life: 3,
+        score:900,
         visible:false
     }
 

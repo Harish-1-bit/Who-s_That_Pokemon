@@ -28,6 +28,7 @@ const Form = () => {
             },100)
 
         }
+        console.log(answer)
             dispatch({
                 type:"visible"
             })
