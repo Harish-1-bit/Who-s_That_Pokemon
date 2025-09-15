@@ -14,7 +14,7 @@ const Form = () => {
 
     const handleSubmit=(event)=>{
         event.preventDefault()
-        if(pokemon.name===answer){
+        if(pokemon.name===answer.toLowerCase()){
             dispatch({
                 type:"incerse"
             })
