@@ -16,6 +16,7 @@ const Card = () => {
 
     const restart=()=>{
         window.location.href="/"
+        
     }
 
 
