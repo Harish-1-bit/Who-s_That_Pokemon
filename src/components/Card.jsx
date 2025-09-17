@@ -1,17 +1,25 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import PokeContext from '../context/PokeContext'
 import { fetchPokemon } from '../context/PokeService'
+import { CgLayoutGrid } from 'react-icons/cg'
 
 const Card = () => {
 
     const { pokemon, dispatch,score,life} = useContext(PokeContext)
+    const [hint,setHint]=useState(false)
+    const handleHint=()=>{
+        setHint(hint?false:true)
+        console.log("object")
+    }
+
 
     const getPokemon = async () => {
         const data = await fetchPokemon()
         dispatch({
             type: "GET_POKEMON",
-            payload: { name: data.name, imageURL: data.sprites.other.dream_world.front_default }
+            payload: { name: data.name, imageURL: data.sprites.other.dream_world.front_default,ability:data.abilities}
         })
+
     }
 
     const restart=()=>{
@@ -19,11 +27,11 @@ const Card = () => {
         
     }
 
+   
 
     useEffect(() => {
             getPokemon()
     }, [])
-
     if (score === 1000) {
         return (
             <div className="border border-gray-300 rounded-md p-4 my-4 text-center flex flex-col gap-4">
@@ -48,6 +56,8 @@ const Card = () => {
         )
     }
 
+    
+
     if (!pokemon) {
         return (
             <div className='flex items-center justify-center'>
@@ -58,8 +68,26 @@ const Card = () => {
 
 
     return (
-        <div className="border border-gray-300 rounded-md p-4 my-4 flex items-center justify-center">
+        <div className=' duration-200 text-4xl mx-1 font-bold  font-stretch-95%'>
+            <div className="border border-gray-300 rounded-md p-4 my-4 flex items-center justify-center relative">
             <img  className='h-52 brightness-0' src={pokemon?.imageURL} alt="pokemon" />
+            <button onClick={handleHint} className={'absolute right-5 top-5 text-2xl px-5 py-2 border-2 font-mono bg-amber-500 rounded-4xl'}>Hints?</button>
+        </div>
+          <p className={hint?'':'hidden'}>
+            <p>Abilities:-</p>
+             {       
+                pokemon.ability.map((abi)=>{
+           console.log(abi)
+           return (
+                <span className={'duration-200 text-2xl text-gray-500 mr-2 my-2 font-bold pos uppercase'}>{`${abi.ability.name}`}.</span>
+                
+
+           )  
+       } )
+       }
+
+          </p>
+    
         </div>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 const Rules = () => {
   return (
     <div className=' px-8'>
-                <p className='  text-3xl font-extrabold mt-5'>Rules :</p>
+                <p className='  text-3xl font-extrabold mt-5'>Instructions :</p>
         <ul className='list-disc px-5 mt-5'>
           <li className='py-2 text-xl font-extralight'>You begin the game with a total of three lives.</li>
           <li className='py-2 text-xl font-extralight '>A black, shadowed image of a Pokémon will appear on the screen.</li>

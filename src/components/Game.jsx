@@ -5,9 +5,9 @@ import ScoreBoard from './ScoreBoard'
 import Form from './Form'
 
 
-const Game = ({start}) => {
+const Game = () => {
   return (
-    <div className={start?"p-8 min-h-screen transition-all duration-300 ease-in-out":"hidden"}>
+    <div className="p-8 min-h-screen transition-all duration-300 ease-in-out">
         <h1 className="text-center text-2xl font-semibold">Who's That Pokemon?</h1>
         <Card />
         <ScoreBoard />
