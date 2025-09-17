@@ -9,7 +9,8 @@ export const PokeProvider = ({ children }) => {
         pokemon: null,
         life: 3,
         score:900,
-        visible:false
+        visible:false,
+        theme:JSON.parse(localStorage.getItem("theme"))
     }
 
 

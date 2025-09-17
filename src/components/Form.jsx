@@ -3,7 +3,7 @@ import PokeContext from '../context/PokeContext'
 
 
 const Form = () => {
-    const {pokemon,dispatch,score,life}=useContext(PokeContext)
+    const {pokemon,dispatch,score,life,theme}=useContext(PokeContext)
     const [answer,setAnsweer] = useState("")
     const [btn,setBtn] = useState("Submit Your Answer")
 
@@ -46,7 +46,7 @@ const Form = () => {
         }}>
             <input value={answer} onChange={(event)=>{
                 setAnsweer(event.target.value)
-            }} type="text" placeholder='Enter Pokemon Name' className='border border-gray-400 w-full rounded-md p-2.5' />
+            }} type="text" placeholder='Enter Pokemon Name' className={theme?'border border-gray-400 w-full rounded-md p-2.5':'border border-gray-400 w-full rounded-md p-2.5 text-white'} />
             <button onClick={text}  className='bg-emerald-500 hover:bg-emerald-600 cursor-pointer w-full rounded-md my-2 text-white font-bold py-2.5'>{btn}</button>
         </form>
     )

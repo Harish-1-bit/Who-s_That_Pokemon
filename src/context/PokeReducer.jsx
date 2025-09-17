@@ -29,6 +29,13 @@ export const PokeReducer = (state, action) => {
                 visible:state.visible?false:true
             }
         }
+
+        case "Change_theme":{
+            return{
+                ...state,
+                theme:state.theme?false:true
+            }
+        }
         default:
             return state;
     }
